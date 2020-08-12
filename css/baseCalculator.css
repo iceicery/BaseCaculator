@@ -1,0 +1,44 @@
+body{
+    width:33%;
+}
+.res2{
+    background-color:lightgray;
+    border:solid;
+    width:100%;
+    height:48px;
+    font-size:20px;
+}
+
+.btns2{
+    border:solid;
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+}
+
+.btn20, .btn21{
+  height:36px;
+  font-size:18px;
+  margin:0;
+  float:left;
+  background-color:lightgreen;
+  color:brown;
+}
+
+.btnClr2, .btnEql2{
+    height:36px;
+  font-size:18px;
+  margin:0;
+  float:left;
+  background-color:darkgreen;
+  color:white;
+}
+
+.btnSum2, .btnSub2, .btnMul2, .btnDiv2{
+    height:36px;
+  font-size:18px;
+  margin:0;
+  float:left;
+    background-color:black;
+    color:red;
+}
