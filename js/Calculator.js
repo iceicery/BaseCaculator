@@ -3,103 +3,150 @@ let number = 0;
 let operator = "";
 
 export default class Calculator {
-    constructor(base,resEq) {
+    constructor(base, resEq) {
         this.base = base;
-        this.resEq=resEq;
+        this.resEq = resEq;
     }
 
     clickNumberEventListener() {
         for (let i = 0; i < this.base; i++) {
             document.querySelector(`.btn${this.base}${i}`).addEventListener('click', () => {
+                if(i>9){
+                    i=String.fromCharCode(97+i-10);
+                }
                 biString = biString + i;
-                this.resEq=this.resEq+i;
+                this.resEq = this.resEq + i;
                 document.querySelector(`.res${this.base}__eq`).textContent = this.resEq;
+                this.enableButton();
             })
         }
     }
     clickOperatorListener() {
         document.querySelector(`.btnSum${this.base}`).addEventListener('click', () => {
-            number = parseInt(biString, this.base);
-            operator = "sum";
-            this.resEq=this.resEq+"+";
+            
+            this.resEq = this.resEq + "+";
             document.querySelector(`.res${this.base}__eq`).textContent = this.resEq;
+            let inputNumber = parseInt(biString, this.base);
+            this.calculate(inputNumber);
+            document.querySelector(`.res${this.base}`).textContent = number.toString(this.base);
+            operator = "sum";
             biString = "";
+            this.disableButton();
         })
 
         document.querySelector(`.btnSub${this.base}`).addEventListener('click', () => {
-            number = parseInt(biString, this.base);
-            operator = "sub";
-            this.resEq=this.resEq+"-";
+            this.resEq = this.resEq + "-";
             document.querySelector(`.res${this.base}__eq`).textContent = this.resEq;
+            let inputNumber = parseInt(biString, this.base);
+            this.calculate(inputNumber);
+            document.querySelector(`.res${this.base}`).textContent = number.toString(this.base);
+            operator = "sub";
             biString = "";
+            this.disableButton();
         })
 
         document.querySelector(`.btnMul${this.base}`).addEventListener('click', () => {
-            number = parseInt(biString, this.base);
-            operator = "mul";
-            this.resEq=this.resEq+"*";
+            
+            this.resEq = this.resEq + "*";
             document.querySelector(`.res${this.base}__eq`).textContent = this.resEq;
+            let inputNumber = parseInt(biString, this.base);
+            this.calculate(inputNumber);
+            document.querySelector(`.res${this.base}`).textContent = number.toString(this.base);
+            operator = "mul";
             biString = "";
+            this.disableButton();
         })
         document.querySelector(`.btnDiv${this.base}`).addEventListener('click', () => {
-            number = parseInt(biString, this.base);
-            operator = "div";
-            this.resEq=this.resEq+"-";
+            
+            this.resEq = this.resEq + "/";
             document.querySelector(`.res${this.base}__eq`).textContent = this.resEq;
+            let inputNumber = parseInt(biString, this.base);
+            this.calculate(inputNumber);
+            document.querySelector(`.res${this.base}`).textContent = number.toString(this.base);
+            operator = "div";
             biString = "";
+            this.disableButton();
         })
     }
-    
-    calculate(){
-        let n = parseInt(biString, this.base);
-            if (operator === "sum") {
-                number = number + n;
-            }
-            if (operator === "sub") {
-                number = number - n;
-            }
-            if (operator === "mul") {
-                number = number * n;
-            }
-            if (operator === "div") {
-                number = number / n;
-            }
+
+    calculate(inputNumber) {
+        if (operator === "") {
+            number=inputNumber;
+        }
+        if (operator === "sum") {
+            number = number + inputNumber;
+        }
+        if (operator === "sub") {
+            number = number - inputNumber;
+        }
+        if (operator === "mul") {
+            number = number * inputNumber;
+        }
+        if (operator === "div") {
+            number = number / inputNumber;
+        }
     }
 
-    enableButton(){
-        document.querySelector(`.btnSum${this.base}`).disable=ture;
-        document.querySelector(`.btnSub${this.base}`).disable=ture;
-        document.querySelector(`.btnMul${this.base}`).disable=ture;
-        document.querySelector(`.btnDiv${this.base}`).disable=ture;
-        document.querySelector(`.btnEql${this.base}`).disable=ture;
+    disableButton() {
+        document.querySelector(`.btnSum${this.base}`).disabled = true;
+        document.querySelector(`.btnSub${this.base}`).disabled = true;
+        document.querySelector(`.btnMul${this.base}`).disabled = true;
+        document.querySelector(`.btnDiv${this.base}`).disabled = true;
+        document.querySelector(`.btnEql${this.base}`).disabled = true;
     }
 
-    activeButton(){
-        document.querySelector(`.btnSum${this.base}`).disable=false;
-        document.querySelector(`.btnSub${this.base}`).disable=false;
-        document.querySelector(`.btnMul${this.base}`).disable=false;
-        document.querySelector(`.btnDiv${this.base}`).disable=false;
-        document.querySelector(`.btnEql${this.base}`).disable=false;
+    disableNumberButton() {
+        for (let i = 0; i < this.base; i++) {
+            document.querySelector(`.btn${this.base}${i}`).disabled = true;
+
+        }
+    }
+
+
+    enableButton() {
+        document.querySelector(`.btnSum${this.base}`).disabled = false;
+        document.querySelector(`.btnSub${this.base}`).disabled = false;
+        document.querySelector(`.btnMul${this.base}`).disabled = false;
+        document.querySelector(`.btnDiv${this.base}`).disabled = false;
+        document.querySelector(`.btnEql${this.base}`).disabled = false;
+    }
+
+    enableNumberButton() {
+        for (let i = 0; i < this.base; i++) {
+            document.querySelector(`.btn${this.base}${i}`).disabled = false;
+
+        }
+    }
+    clickEqualEventListener() {
+        document.querySelector(`.btnEql${this.base}`).addEventListener('click', () => {
+            let n = parseInt(biString, this.base);
+            this.calculate(n);
+            document.querySelector(`.res${this.base}`).textContent = number.toString(this.base);
+            this.resEq = this.resEq + "=";
+            document.querySelector(`.res${this.base}__eq`).textContent = this.resEq;
+            this.disableButton();
+            this.disableNumberButton();
+        })
+    }
+
+    clickClrEventListener(){
+        document.querySelector(`.btnClr${this.base}`).addEventListener('click', () => {
+            biString = "";
+            number = 0;
+            operator = "";
+            this.resEq = "";
+            document.querySelector(`.res${this.base}`).textContent = "";
+            document.querySelector(`.res${this.base}__eq`).textContent = "";
+            this.enableButton();
+            this.enableNumberButton();
+        })
     }
 
     setEventListener() {
         this.clickNumberEventListener();
         this.clickOperatorListener();
-        document.querySelector(`.btnEql${this.base}`).addEventListener('click', () => {
-            this.calculate();
-            document.querySelector(`.res${this.base}`).textContent = number.toString(this.base);
-            this.resEq=this.resEq+"=";
-            document.querySelector(`.res${this.base}__eq`).textContent=this.resEq;
-        })
-
-        document.querySelector(`.btnClr${this.base}`).addEventListener('click', () => {
-            biString = "";
-            number = 0;
-            operator = "";
-            this.resEq="";
-            document.querySelector(`.res${this.base}`).textContent = "";
-            document.querySelector(`.res${this.base}__eq`).textContent="";         
-        })
+        this.clickEqualEventListener();
+        this.clickClrEventListener();
     }
 
 
