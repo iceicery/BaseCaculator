@@ -66,6 +66,22 @@ export default class Calculator {
             }
     }
 
+    enableButton(){
+        document.querySelector(`.btnSum${this.base}`).disable=ture;
+        document.querySelector(`.btnSub${this.base}`).disable=ture;
+        document.querySelector(`.btnMul${this.base}`).disable=ture;
+        document.querySelector(`.btnDiv${this.base}`).disable=ture;
+        document.querySelector(`.btnEql${this.base}`).disable=ture;
+    }
+
+    activeButton(){
+        document.querySelector(`.btnSum${this.base}`).disable=false;
+        document.querySelector(`.btnSub${this.base}`).disable=false;
+        document.querySelector(`.btnMul${this.base}`).disable=false;
+        document.querySelector(`.btnDiv${this.base}`).disable=false;
+        document.querySelector(`.btnEql${this.base}`).disable=false;
+    }
+
     setEventListener() {
         this.clickNumberEventListener();
         this.clickOperatorListener();
