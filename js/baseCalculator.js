@@ -1,7 +1,7 @@
 import Calculator from "./Calculator.js";
 
-const biCalculator = new Calculator(2);
+const biCalculator = new Calculator(2,"");
 biCalculator.setEventListener();
 
-const octCalculator=new Calculator(8);
+const octCalculator=new Calculator(8,"");
 octCalculator.setEventListener();

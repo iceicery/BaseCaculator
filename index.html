@@ -4,42 +4,63 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/baseCalculator.css" type="text/css">
-    <title>Binary Calculator</title>
+    <title>Base Calculator</title>
 </head>
 
 <body>
-    <section class="binary">
-        <div class="res2"></div>
-        <div class="btns2">
-            <button class="btn20">0</button>
-            <button class="btn21">1</button>
-            <button class="btnClr2">C</button>
-            <button class="btnEql2">=</button>
-            <button class="btnSum2">+</button>
-            <button class="btnSub2">-</button>
-            <button class="btnMul2">*</button>
-            <button class="btnDiv2">/</button>
+    <header class="header">
+        <h1 class="header__title">Base Calculator</h1>
+    </header>
+    <main class="main">
+    <section class="binary container">
+        <h2>Binary Caculator</h2>
+        <div class="result">
+            <p class="res2__eq">Equation</p>
+            <p class="res2">result</p>
+        </div>
+        <div class="number__container">
+            <button class="btn20 number">0</button>
+            <button class="btn21 number">1</button>
+        </div>
+        <div class="operator__container">
+            <button class="btnSum2 operator">+</button>
+            <button class="btnSub2 operator">-</button>
+            <button class="btnMul2 operator">*</button>
+            <button class="btnDiv2 operator">/</button>
+        </div>
+        <div class="eqlClr__container">    
+            <button class="btnClr2 eqlClr">C</button>
+            <button class="btnEql2 eqlClr">=</button>
         </div>
     </section>
-    <section class="octal">
-        <div class="res8"></div>
-        <div class="btns8">
-            <button class="btn80">0</button>
-            <button class="btn81">1</button>
-            <button class="btn82">2</button>
-            <button class="btn83">3</button>
-            <button class="btn84">4</button>
-            <button class="btn85">5</button>
-            <button class="btn86">6</button>
-            <button class="btn87">7</button>
-            <button class="btnClr8">C</button>
-            <button class="btnEql8">=</button>
-            <button class="btnSum8">+</button>
-            <button class="btnSub8">-</button>
-            <button class="btnMul8">*</button>
-            <button class="btnDiv8">/</button>
+    <section class="octal container">   
+        <h2>Octal Caculator</h2>
+        <div class="result">
+            <p class="res8__eq"></p>
+            <p class="res8"></p>
+        </div>
+        <div class="number__container">
+            <button class="btn80 number">0</button>
+            <button class="btn81 number">1</button>
+            <button class="btn82 number">2</button>
+            <button class="btn83 number">3</button>
+            <button class="btn84 number">4</button>
+            <button class="btn85 number">5</button>
+            <button class="btn86 number">6</button>
+            <button class="btn87 number">7</button>
+        </div>
+        <div class="operator__container">
+            <button class="btnSum8 operator">+</button>
+            <button class="btnSub8 operator">-</button>
+            <button class="btnMul8 operator">*</button>
+            <button class="btnDiv8 operator">/</button>
+        </div>
+        <div class="eqlClr__container">    
+            <button class="btnClr8 eqlClr">C</button>
+            <button class="btnEql8 eqlClr">=</button>
         </div>
     </section>
+    </main>
     <script src="js/baseCalculator.js" type="module"></script>
 </body>
 
