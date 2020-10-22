@@ -12,19 +12,26 @@ export default class Calculator {
     clickNumberEventListener() {
         for (let i = 0; i < this.base; i++) {
             document.querySelector(`.btn${this.base}${i}`).addEventListener('click', () => {
-                if(i>9){
-                    i=String.fromCharCode(97+i-10);
+                if (whatBase !== "" && whatBase !== this.base) {
+                    this.disableButton();
+                    this.disableNumberButton();
+                    this.disableClrButton();
+                    return;
+                }
+                if (i > 9) {
+                    i = String.fromCharCode(97 + i - 10);
                 }
                 biString = biString + i;
                 this.resEq = this.resEq + i;
                 document.querySelector(`.res${this.base}__eq`).textContent = this.resEq;
+                whatBase = this.base;
                 this.enableButton();
             })
         }
     }
     clickOperatorListener() {
         document.querySelector(`.btnSum${this.base}`).addEventListener('click', () => {
-            
+
             this.resEq = this.resEq + "+";
             document.querySelector(`.res${this.base}__eq`).textContent = this.resEq;
             let inputNumber = parseInt(biString, this.base);
@@ -47,7 +54,7 @@ export default class Calculator {
         })
 
         document.querySelector(`.btnMul${this.base}`).addEventListener('click', () => {
-            
+
             this.resEq = this.resEq + "*";
             document.querySelector(`.res${this.base}__eq`).textContent = this.resEq;
             let inputNumber = parseInt(biString, this.base);
@@ -58,7 +65,7 @@ export default class Calculator {
             this.disableButton();
         })
         document.querySelector(`.btnDiv${this.base}`).addEventListener('click', () => {
-            
+
             this.resEq = this.resEq + "/";
             document.querySelector(`.res${this.base}__eq`).textContent = this.resEq;
             let inputNumber = parseInt(biString, this.base);
@@ -72,7 +79,7 @@ export default class Calculator {
 
     calculate(inputNumber) {
         if (operator === "") {
-            number=inputNumber;
+            number = inputNumber;
         }
         if (operator === "sum") {
             number = number + inputNumber;
@@ -102,6 +109,13 @@ export default class Calculator {
 
         }
     }
+    disableClrButton(){
+        document.querySelector(`.btnClr${this.base}`).disabled = true;
+    }
+
+    enableClrButton(){
+        document.querySelector(`.btnClr${this.base}`).disabled = false;
+    }
 
 
     enableButton() {
@@ -130,7 +144,7 @@ export default class Calculator {
         })
     }
 
-    clickClrEventListener(){
+    clickClrEventListener() {
         document.querySelector(`.btnClr${this.base}`).addEventListener('click', () => {
             biString = "";
             number = 0;
@@ -138,6 +152,7 @@ export default class Calculator {
             this.resEq = "";
             document.querySelector(`.res${this.base}`).textContent = "";
             document.querySelector(`.res${this.base}__eq`).textContent = "";
+            whatBase="";
             this.enableButton();
             this.enableNumberButton();
         })
