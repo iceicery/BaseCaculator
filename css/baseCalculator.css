@@ -19,8 +19,8 @@ header {
 }
 
 .container {
-  margin-top: 50px;
-  border: solid #fff;
+  margin: 50px;
+  border: solid #fff ;
   border-radius: 10px;
   padding: 30px;
 }
@@ -62,6 +62,11 @@ header {
   margin: 0;
   float: left;
 }
+
+.number:hover{
+  cursor: pointer;
+  opacity: 50%;
+}
 .eqlClr__container{
   margin-top:10px;
   width: 100%;
@@ -81,6 +86,11 @@ header {
   color: white;
 }
 
+.eqlClr:hover{
+  cursor: pointer;
+  opacity: 50%;
+}
+
 .operator__container {
   margin-top:10px;
   width: 100%;
@@ -98,6 +108,11 @@ header {
   background-color: #101010;
   float: left;
   color:#fff;
+}
+
+.operator:hover{
+  cursor: pointer;
+  opacity: 50%;
 }
 
 .footer{
