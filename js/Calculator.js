@@ -15,7 +15,7 @@ export default class Calculator {
                 if (whatBase !== "" && whatBase !== this.base) {
                     this.disableButton();
                     this.disableNumberButton();
-                    this.disableClrButton();
+                    this.disableClrButton();  
                     return;
                 }
                 if (i > 9) {
