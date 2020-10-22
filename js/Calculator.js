@@ -1,6 +1,7 @@
 let biString = "";
 let number = 0;
 let operator = "";
+let whatBase = "";
 
 export default class Calculator {
     constructor(base, resEq) {
