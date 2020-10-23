@@ -17,7 +17,7 @@ header {
   grid-gap: 50px;
 }
 
-@media screen and (max-width:425px) {
+@media screen and (max-width:500px) {
   .main {
     display: grid;
     grid-template-columns: 1fr;
@@ -30,6 +30,13 @@ header {
   border: solid #fff;
   border-radius: 10px;
   padding: 30px;
+}
+
+@media screen and (max-width:500px) {
+  .container {
+    margin: 20px;
+    padding:10px;
+  }
 }
 
 .result {
@@ -134,4 +141,12 @@ header {
   border-top: #fff double;
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+@media screen and (max-width:500px) {
+  .footer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 0;
+  }
 }
