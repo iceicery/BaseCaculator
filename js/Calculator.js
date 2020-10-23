@@ -18,10 +18,12 @@ export default class Calculator {
                     this.disableClrButton();  
                     return;
                 }
+                
                 if (i > 9) {
                     i = String.fromCharCode(97 + i - 10);
                 }
                 biString = biString + i;
+                console.log(biString);
                 this.resEq = this.resEq + i;
                 document.querySelector(`.res${this.base}__eq`).textContent = this.resEq;
                 whatBase = this.base;
@@ -135,7 +137,9 @@ export default class Calculator {
     clickEqualEventListener() {
         document.querySelector(`.btnEql${this.base}`).addEventListener('click', () => {
             let n = parseInt(biString, this.base);
+            console.log(n);
             this.calculate(n);
+            console.log(number);
             document.querySelector(`.res${this.base}`).textContent = number.toString(this.base);
             this.resEq = this.resEq + "=";
             document.querySelector(`.res${this.base}__eq`).textContent = this.resEq;
@@ -155,7 +159,6 @@ export default class Calculator {
             whatBase ="";
             this.enableButton();
             this.enableNumberButton();
-            console.log(whatBase);
         })
     }
 
