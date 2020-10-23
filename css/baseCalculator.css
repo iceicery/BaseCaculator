@@ -1,82 +1,90 @@
 @import url('../vendor/normalize.css');
 @import url('../vendor/font/font.css');
-
 body {
   background-color: #101010;
-  font-family:'Inter', Arial, Helvetica, sans-serif;
-  color:#fff;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  color: #fff;
 }
 
 header {
   border-bottom: #fff solid;
-  padding:30px;
+  padding: 30px;
 }
 
-.main{
-  display:grid;
+.main {
+  display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 50px;
 }
 
+@media screen and (max-width:425px) {
+  .main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 0;
+  }
+}
+
 .container {
   margin: 50px;
-  border: solid #fff ;
+  border: solid #fff;
   border-radius: 10px;
   padding: 30px;
 }
 
 .result {
-  float:left;
-  border:solid #fff;
+  float: left;
+  border: solid #fff;
   border-radius: 10px;
   width: 100%;
-  height:100px;
-  padding:0;
-  margin-bottom:10px;
+  height: 100px;
+  padding: 0;
+  margin-bottom: 10px;
   display: grid;
-  grid-template-rows: 1fr,1fr;
-  
+  grid-template-rows: 1fr, 1fr;
 }
-.result__eq{
-  font-size:22px;
+
+.result__eq {
+  font-size: 22px;
   margin: 10px;
 }
 
-.result__sub{
-  margin:10px;
+.result__sub {
+  margin: 10px;
   text-align: right;
   font-size: 22px;
 }
 
 .number__container {
   width: 100%;
-  margin-top:10px;
+  margin-top: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap:10px;
+  grid-gap: 10px;
 }
 
 .number {
-  border:solid #fff;
+  border: solid #fff;
   border-radius: 10px;
   background-color: #101010;
-  color:#fff;
+  color: #fff;
   height: 36px;
   font-size: 18px;
   margin: 0;
   float: left;
 }
 
-.number:hover{
+.number:hover {
   cursor: pointer;
   opacity: 50%;
 }
-.eqlClr__container{
-  margin-top:10px;
+
+.eqlClr__container {
+  margin-top: 10px;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap:10px;
+  grid-gap: 10px;
 }
 
 .eqlClr {
@@ -90,41 +98,40 @@ header {
   color: white;
 }
 
-.eqlClr:hover{
+.eqlClr:hover {
   cursor: pointer;
   opacity: 50%;
 }
 
 .operator__container {
-  margin-top:10px;
+  margin-top: 10px;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap:10px;
+  grid-gap: 10px;
 }
 
 .operator {
-  border:solid #fff;
+  border: solid #fff;
   border-radius: 10px;
   height: 36px;
   font-size: 18px;
   margin: 0;
   background-color: #101010;
   float: left;
-  color:#fff;
+  color: #fff;
 }
 
-.operator:hover{
+.operator:hover {
   cursor: pointer;
   opacity: 50%;
 }
 
-.footer{
+.footer {
   width: 100%;
   margin-top: 50px;
-  padding:30px;
+  padding: 30px;
   border-top: #fff double;
-  display:grid;
-  grid-template-columns:1fr 1fr ;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
-  
