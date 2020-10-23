@@ -150,11 +150,12 @@ export default class Calculator {
             number = 0;
             operator = "";
             this.resEq = "";
-            document.querySelector(`.res${this.base}`).textContent = "";
-            document.querySelector(`.res${this.base}__eq`).textContent = "";
-            whatBase="";
+            document.querySelector(`.res${this.base}`).textContent = "Result";
+            document.querySelector(`.res${this.base}__eq`).textContent = "Equation";
+            whatBase ="";
             this.enableButton();
             this.enableNumberButton();
+            console.log(whatBase);
         })
     }
 
